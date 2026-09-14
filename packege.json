@@ -1,5 +1,8 @@
 {
-  "name": "sasi-like-lite",
+  "name": "sasi-like-pro",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  }
 }
