@@ -10,7 +10,7 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { height: 100%; }
-  
+
   body {
     font-family: 'Inter', -apple-system, sans-serif;
     background: #000;
@@ -24,7 +24,7 @@
     position: relative;
     overflow-x: hidden;
   }
-  
+
   /* Animated conic glow */
   .glow {
     position: fixed;
@@ -41,12 +41,12 @@
     animation: rotate 30s linear infinite;
     pointer-events: none;
   }
-  
+
   @keyframes rotate {
     from { transform: translateX(-50%) rotate(0deg); }
     to { transform: translateX(-50%) rotate(360deg); }
   }
-  
+
   /* Dot grid */
   .grid {
     position: fixed;
@@ -58,7 +58,7 @@
     z-index: 1;
     pointer-events: none;
   }
-  
+
   .container {
     position: relative;
     z-index: 10;
@@ -66,19 +66,19 @@
     max-width: 420px;
     animation: enter 1s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
+
   @keyframes enter {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  
+
   /* Top badge */
   .top-badge {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
   }
-  
+
   .badge-pill {
     display: inline-flex;
     align-items: center;
@@ -93,23 +93,23 @@
     backdrop-filter: blur(20px);
     transition: all 0.3s;
   }
-  
+
   .badge-pill:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.2);
   }
-  
+
   .badge-pill .arrow {
     color: #888;
     font-size: 14px;
     transition: transform 0.3s;
   }
-  
+
   .badge-pill:hover .arrow {
     transform: translateX(2px);
     color: #fff;
   }
-  
+
   /* Card */
   .card {
     background: rgba(0, 0, 0, 0.7);
@@ -120,12 +120,11 @@
     -webkit-backdrop-filter: blur(40px);
     position: relative;
     overflow: hidden;
-    box-shadow: 
+    box-shadow:
       0 0 0 1px rgba(255, 255, 255, 0.02),
       0 30px 80px -30px rgba(0, 0, 0, 0.9);
   }
-  
-  /* Top gradient line */
+
   .card::before {
     content: "";
     position: absolute;
@@ -133,15 +132,15 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, 
-      transparent 0%, 
-      rgba(0, 124, 240, 0.6) 25%, 
-      rgba(121, 40, 202, 0.6) 50%, 
-      rgba(255, 0, 128, 0.6) 75%, 
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(0, 124, 240, 0.6) 25%,
+      rgba(121, 40, 202, 0.6) 50%,
+      rgba(255, 0, 128, 0.6) 75%,
       transparent 100%
     );
   }
-  
+
   /* Brand bar */
   .brand-bar {
     display: flex;
@@ -151,13 +150,13 @@
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
-  
+
   .brand-left {
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  
+
   .logo-mark {
     width: 34px;
     height: 34px;
@@ -172,14 +171,14 @@
     overflow: hidden;
     box-shadow: 0 4px 14px -4px rgba(121, 40, 202, 0.7);
   }
-  
+
   .logo-mark::after {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent 50%);
   }
-  
+
   .logo-mark svg {
     width: 16px;
     height: 16px;
@@ -191,7 +190,7 @@
     position: relative;
     z-index: 1;
   }
-  
+
   .brand-name {
     font-size: 14px;
     font-weight: 800;
@@ -199,14 +198,14 @@
     color: #fff;
     font-family: 'Inter', sans-serif;
   }
-  
+
   .brand-name .accent {
     background: linear-gradient(135deg, #00dfd8, #ff0080);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  
+
   .brand-sub {
     font-size: 9.5px;
     color: #666;
@@ -216,7 +215,7 @@
     margin-top: 2px;
     font-family: 'JetBrains Mono', monospace;
   }
-  
+
   .status-pill {
     display: flex;
     align-items: center;
@@ -232,7 +231,7 @@
     text-transform: uppercase;
     font-family: 'JetBrains Mono', monospace;
   }
-  
+
   .status-pill .dot {
     width: 5px;
     height: 5px;
@@ -241,12 +240,12 @@
     box-shadow: 0 0 8px #4ade80;
     animation: pulse 1.8s infinite;
   }
-  
+
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.4; transform: scale(0.7); }
   }
-  
+
   /* Headline */
   .title {
     font-size: 32px;
@@ -260,7 +259,7 @@
     background-clip: text;
     color: transparent;
   }
-  
+
   .subtitle {
     font-size: 14px;
     color: #888;
@@ -269,7 +268,7 @@
     margin-bottom: 32px;
     font-weight: 400;
   }
-  
+
   /* Field label */
   .field-label {
     display: flex;
@@ -281,7 +280,7 @@
     margin-bottom: 8px;
     letter-spacing: 0.2px;
   }
-  
+
   .field-label .required {
     color: #5e6ad2;
     font-size: 10px;
@@ -290,7 +289,7 @@
     letter-spacing: 0.5px;
     font-family: 'JetBrains Mono', monospace;
   }
-  
+
   .field-label .live-badge {
     color: #4ade80;
     font-size: 10px;
@@ -300,7 +299,7 @@
     font-family: 'JetBrains Mono', monospace;
     font-weight: 600;
   }
-  
+
   .field-label .live-badge::before {
     content: "";
     width: 5px;
@@ -310,19 +309,19 @@
     box-shadow: 0 0 6px #4ade80;
     animation: pulse 1.8s infinite;
   }
-  
+
   /* Input */
   .input-wrapper {
     position: relative;
-    margin-bottom: 14px;
+    margin-bottom: 22px;
   }
-  
+
   .field {
     position: relative;
     display: flex;
     align-items: center;
   }
-  
+
   .field input {
     width: 100%;
     padding: 15px 50px 15px 16px;
@@ -337,17 +336,17 @@
     transition: all 0.2s;
     font-variant-numeric: tabular-nums;
   }
-  
+
   .field input:focus {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.25);
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
   }
-  
+
   .field input::placeholder {
     color: #555;
   }
-  
+
   .field .paste {
     position: absolute;
     right: 8px;
@@ -364,56 +363,19 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .field .paste:hover {
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
     border-color: rgba(255, 255, 255, 0.2);
   }
-  
+
   .field .paste.success {
     background: rgba(34, 197, 94, 0.15);
     border-color: rgba(34, 197, 94, 0.4);
     color: #4ade80;
   }
-  
-  /* Servers */
-  .servers {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 22px;
-  }
-  
-  .server-btn {
-    flex: 1;
-    padding: 11px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    color: #888;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
-    text-transform: uppercase;
-  }
-  
-  .server-btn:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-  
-  .server-btn.active {
-    background: #fff;
-    color: #000;
-    border-color: #fff;
-    font-weight: 800;
-    box-shadow: 0 4px 12px -2px rgba(255, 255, 255, 0.3);
-  }
-  
+
   /* Tasks head */
   .tasks-head {
     display: flex;
@@ -422,14 +384,14 @@
     margin-bottom: 10px;
     padding: 0 4px;
   }
-  
+
   .tasks-head .label {
     font-size: 12px;
     font-weight: 500;
     color: #888;
     letter-spacing: 0.2px;
   }
-  
+
   .tasks-head .counter {
     font-size: 11px;
     font-weight: 700;
@@ -442,13 +404,13 @@
     font-family: 'JetBrains Mono', monospace;
     transition: all 0.3s;
   }
-  
+
   .tasks-head .counter.done {
     background: rgba(34, 197, 94, 0.1);
     border-color: rgba(34, 197, 94, 0.3);
     color: #4ade80;
   }
-  
+
   /* Task items */
   .task {
     display: flex;
@@ -464,24 +426,24 @@
     text-align: left;
     user-select: none;
   }
-  
+
   .task:hover:not(.done):not(.locked) {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.15);
     transform: translateY(-1px);
   }
-  
+
   .task.locked {
     opacity: 0.42;
     cursor: not-allowed;
   }
-  
+
   .task.done {
     background: rgba(34, 197, 94, 0.06);
     border-color: rgba(34, 197, 94, 0.25);
     cursor: default;
   }
-  
+
   .task-icon {
     width: 34px;
     height: 34px;
@@ -494,7 +456,7 @@
     flex-shrink: 0;
     transition: all 0.3s;
   }
-  
+
   .task-icon svg {
     width: 15px;
     height: 15px;
@@ -505,21 +467,21 @@
     stroke-linejoin: round;
     transition: stroke 0.3s;
   }
-  
+
   .task.done .task-icon {
     background: rgba(34, 197, 94, 0.15);
     border-color: rgba(34, 197, 94, 0.35);
   }
-  
+
   .task.done .task-icon svg {
     stroke: #4ade80;
   }
-  
+
   .task-text {
     flex: 1;
     min-width: 0;
   }
-  
+
   .task-text .name {
     display: block;
     font-size: 13px;
@@ -527,22 +489,22 @@
     color: #fff;
     margin-bottom: 2px;
   }
-  
+
   .task-text .sub {
     display: block;
     font-size: 11px;
     color: #666;
     font-weight: 500;
   }
-  
+
   .task.done .task-text .name {
     color: #86efac;
   }
-  
+
   .task.done .task-text .sub {
     color: #4ade80;
   }
-  
+
   .task .arrow {
     width: 14px;
     height: 14px;
@@ -554,16 +516,16 @@
     stroke-linejoin: round;
     transition: all 0.25s;
   }
-  
+
   .task:hover:not(.done):not(.locked) .arrow {
     stroke: #fff;
     transform: translateX(2px);
   }
-  
+
   .task.done .arrow {
     stroke: #4ade80;
   }
-  
+
   /* Submit */
   .submit {
     width: 100%;
@@ -585,57 +547,23 @@
     position: relative;
     margin-top: 22px;
   }
-  
+
   .submit:hover:not(:disabled) {
     background: #ededed;
     transform: translateY(-1px);
     box-shadow: 0 8px 24px -8px rgba(255, 255, 255, 0.5);
   }
-  
+
   .submit:active:not(:disabled) {
     transform: translateY(0);
   }
-  
+
   .submit:disabled {
     background: rgba(255, 255, 255, 0.1);
     color: #555;
     cursor: not-allowed;
   }
-  
-  /* Metrics */
-  .metrics {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
-  
-  .metric {
-    text-align: center;
-  }
-  
-  .metric .num {
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.5px;
-    display: block;
-    font-variant-numeric: tabular-nums;
-  }
-  
-  .metric .lbl {
-    font-size: 10.5px;
-    color: #666;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-top: 3px;
-    display: block;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  
+
   /* ============================================
      MODAL / OVERLAY
   ============================================ */
@@ -654,12 +582,12 @@
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
   }
-  
+
   .overlay.show {
     opacity: 1;
     visibility: visible;
   }
-  
+
   .modal {
     background: #0a0a0a;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -668,7 +596,7 @@
     max-width: 420px;
     padding: 36px 28px 24px;
     text-align: center;
-    box-shadow: 
+    box-shadow:
       0 0 0 1px rgba(255, 255, 255, 0.02),
       0 40px 90px -20px rgba(0, 0, 0, 0.9);
     transform: scale(0.94) translateY(15px);
@@ -676,7 +604,7 @@
     position: relative;
     overflow: hidden;
   }
-  
+
   .modal::before {
     content: "";
     position: absolute;
@@ -684,7 +612,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, 
+    background: linear-gradient(90deg,
       transparent,
       rgba(0, 124, 240, 0.6),
       rgba(121, 40, 202, 0.6),
@@ -692,23 +620,23 @@
       transparent
     );
   }
-  
+
   .overlay.show .modal {
     transform: scale(1) translateY(0);
   }
-  
+
   /* Loader */
   .loader-wrap {
     padding: 40px 0;
   }
-  
+
   .loader {
     display: flex;
     justify-content: center;
     gap: 6px;
     margin-bottom: 20px;
   }
-  
+
   .loader span {
     width: 8px;
     height: 8px;
@@ -716,16 +644,16 @@
     background: #fff;
     animation: bounce 1.4s infinite ease-in-out both;
   }
-  
+
   .loader span:nth-child(1) { animation-delay: -0.32s; }
   .loader span:nth-child(2) { animation-delay: -0.16s; }
   .loader span:nth-child(3) { animation-delay: 0s; }
-  
+
   @keyframes bounce {
     0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
     40% { transform: scale(1); opacity: 1; }
   }
-  
+
   .loader-text {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -735,12 +663,7 @@
     text-transform: uppercase;
     animation: pulse 1.5s infinite;
   }
-  
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-  
+
   /* Result */
   .result-icon {
     width: 60px;
@@ -752,12 +675,12 @@
     justify-content: center;
     animation: pop 0.5s cubic-bezier(.2,.9,.3,1.4) both;
   }
-  
+
   @keyframes pop {
     from { transform: scale(0.5); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
   }
-  
+
   .result-icon svg {
     width: 26px;
     height: 26px;
@@ -766,27 +689,27 @@
     stroke-linecap: round;
     stroke-linejoin: round;
   }
-  
+
   .result-icon.success {
     background: rgba(34, 197, 94, 0.1);
     border: 1.5px solid rgba(34, 197, 94, 0.4);
   }
-  
+
   .result-icon.success svg {
     stroke: #4ade80;
     filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.6));
   }
-  
+
   .result-icon.error {
     background: rgba(239, 68, 68, 0.1);
     border: 1.5px solid rgba(239, 68, 68, 0.4);
   }
-  
+
   .result-icon.error svg {
     stroke: #f87171;
     filter: drop-shadow(0 0 8px rgba(248, 113, 113, 0.6));
   }
-  
+
   .modal h3 {
     font-size: 19px;
     font-weight: 700;
@@ -794,14 +717,14 @@
     margin-bottom: 8px;
     letter-spacing: -0.4px;
   }
-  
+
   .modal .hint {
     font-size: 13px;
     color: #888;
     line-height: 1.5;
     margin-bottom: 20px;
   }
-  
+
   /* Info */
   .info {
     display: grid;
@@ -811,10 +734,10 @@
     max-height: 300px;
     overflow-y: auto;
   }
-  
+
   .info::-webkit-scrollbar { width: 3px; }
   .info::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-  
+
   .info-item {
     display: flex;
     justify-content: space-between;
@@ -826,19 +749,18 @@
     border: 1px solid rgba(255, 255, 255, 0.06);
     animation: itemIn 0.4s ease both;
   }
-  
+
   .info-item:nth-child(1) { animation-delay: 0.03s; }
   .info-item:nth-child(2) { animation-delay: 0.06s; }
   .info-item:nth-child(3) { animation-delay: 0.09s; }
   .info-item:nth-child(4) { animation-delay: 0.12s; }
   .info-item:nth-child(5) { animation-delay: 0.15s; }
-  .info-item:nth-child(6) { animation-delay: 0.18s; }
-  
+
   @keyframes itemIn {
     from { opacity: 0; transform: translateY(-4px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  
+
   .info-item .key {
     font-size: 10.5px;
     color: #666;
@@ -848,7 +770,7 @@
     white-space: nowrap;
     font-family: 'JetBrains Mono', monospace;
   }
-  
+
   .info-item .val {
     font-size: 13.5px;
     color: #fff;
@@ -857,12 +779,12 @@
     word-break: break-word;
     font-variant-numeric: tabular-nums;
   }
-  
+
   .info-item.highlight {
     background: linear-gradient(135deg, rgba(0, 124, 240, 0.1), rgba(255, 0, 128, 0.08));
     border-color: rgba(165, 180, 252, 0.25);
   }
-  
+
   .info-item.highlight .val {
     background: linear-gradient(90deg, #00dfd8, #ff0080);
     -webkit-background-clip: text;
@@ -871,7 +793,7 @@
     font-size: 15px;
     font-weight: 800;
   }
-  
+
   /* Modal button */
   .modal-btn {
     width: 100%;
@@ -887,14 +809,14 @@
     transition: all 0.2s;
     letter-spacing: 0.2px;
   }
-  
+
   .modal-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
   }
-  
+
   .modal-btn[hidden] { display: none; }
-  
+
   /* ============================================
      COOLDOWN
   ============================================ */
@@ -904,9 +826,9 @@
     align-items: center;
     padding: 10px 4px 4px;
   }
-  
+
   .cooldown-card.show { display: flex; }
-  
+
   .cooldown-icon {
     width: 60px;
     height: 60px;
@@ -919,7 +841,7 @@
     justify-content: center;
     animation: pop 0.5s cubic-bezier(.2,.9,.3,1.4) both;
   }
-  
+
   .cooldown-icon svg {
     width: 28px;
     height: 28px;
@@ -930,7 +852,7 @@
     stroke-linejoin: round;
     filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.6));
   }
-  
+
   .cooldown-card h3 {
     font-size: 20px;
     font-weight: 700;
@@ -938,7 +860,7 @@
     margin-bottom: 8px;
     letter-spacing: -0.4px;
   }
-  
+
   .cooldown-card .cd-hint {
     font-size: 13px;
     color: #888;
@@ -946,7 +868,7 @@
     margin-bottom: 24px;
     max-width: 280px;
   }
-  
+
   .cooldown-timer {
     display: flex;
     align-items: center;
@@ -954,7 +876,7 @@
     gap: 8px;
     margin-bottom: 22px;
   }
-  
+
   .cd-box {
     display: flex;
     flex-direction: column;
@@ -966,7 +888,7 @@
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
-  
+
   .cd-box .cd-val {
     font-size: 22px;
     font-weight: 700;
@@ -977,7 +899,7 @@
     margin-bottom: 4px;
     font-family: 'JetBrains Mono', monospace;
   }
-  
+
   .cd-box .cd-lbl {
     font-size: 9px;
     font-weight: 700;
@@ -986,14 +908,14 @@
     text-transform: uppercase;
     font-family: 'JetBrains Mono', monospace;
   }
-  
+
   .cd-sep {
     font-size: 20px;
     font-weight: 700;
     color: #444;
     margin-top: -14px;
   }
-  
+
   /* ============================================
      THANKS MODAL
   ============================================ */
@@ -1012,12 +934,12 @@
     visibility: hidden;
     transition: opacity 0.35s ease, visibility 0.35s ease;
   }
-  
+
   .thanks-overlay.show {
     opacity: 1;
     visibility: visible;
   }
-  
+
   .thanks-modal {
     background: #0a0a0a;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1026,7 +948,7 @@
     max-width: 380px;
     padding: 40px 28px 30px;
     text-align: center;
-    box-shadow: 
+    box-shadow:
       0 0 0 1px rgba(255, 255, 255, 0.02),
       0 40px 90px -20px rgba(0, 0, 0, 0.9);
     transform: scale(0.9) translateY(20px);
@@ -1034,7 +956,7 @@
     position: relative;
     overflow: hidden;
   }
-  
+
   .thanks-modal::before {
     content: "";
     position: absolute;
@@ -1044,11 +966,11 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(0, 124, 240, 0.5), rgba(255, 0, 128, 0.5), transparent);
   }
-  
+
   .thanks-overlay.show .thanks-modal {
     transform: scale(1) translateY(0);
   }
-  
+
   .thanks-icon {
     width: 72px;
     height: 72px;
@@ -1061,7 +983,7 @@
     justify-content: center;
     animation: pop 0.6s cubic-bezier(.2,.9,.3,1.5) both;
   }
-  
+
   .thanks-icon svg {
     width: 36px;
     height: 36px;
@@ -1072,7 +994,7 @@
     stroke-linejoin: round;
     filter: drop-shadow(0 0 8px rgba(165, 180, 252, 0.7));
   }
-  
+
   .thanks-modal h2 {
     font-size: 24px;
     font-weight: 800;
@@ -1085,11 +1007,11 @@
     letter-spacing: -0.6px;
     animation: textHolo 3s linear infinite;
   }
-  
+
   @keyframes textHolo {
     to { background-position: 200% center; }
   }
-  
+
   .thanks-modal p {
     font-size: 13.5px;
     color: #888;
@@ -1097,12 +1019,12 @@
     max-width: 300px;
     margin: 0 auto;
   }
-  
+
   .thanks-modal p strong {
     color: #a5b4fc;
     font-weight: 700;
   }
-  
+
   .thanks-progress {
     width: 100%;
     height: 3px;
@@ -1112,7 +1034,7 @@
     margin-top: 26px;
     position: relative;
   }
-  
+
   .thanks-progress::after {
     content: "";
     position: absolute;
@@ -1123,18 +1045,18 @@
     transform: scaleX(0);
     border-radius: 3px;
   }
-  
+
   .thanks-overlay.show .thanks-progress::after {
     animation: progressFill 7s linear forwards;
   }
-  
+
   @keyframes progressFill {
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }
   }
-  
+
   /* ============================================
-     WHATSAPP MODAL
+     WHATSAPP MODAL - SMOOTH PREMIUM
   ============================================ */
   .wa-overlay {
     position: fixed;
@@ -1144,172 +1066,301 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.88);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.35s ease, visibility 0.35s ease;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
+
   .wa-overlay.show {
     opacity: 1;
     visibility: visible;
   }
-  
+
   .wa-modal {
-    background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    position: relative;
+    background: rgba(12, 12, 14, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
     width: 100%;
     max-width: 380px;
-    padding: 34px 26px 26px;
+    padding: 40px 28px 28px;
     text-align: center;
-    box-shadow: 
+    box-shadow:
       0 0 0 1px rgba(255, 255, 255, 0.02),
-      0 40px 90px -20px rgba(0, 0, 0, 0.9);
-    transform: scale(0.9) translateY(20px);
-    transition: transform 0.5s cubic-bezier(.2,.9,.3,1.3);
-    position: relative;
+      0 40px 100px -20px rgba(0, 0, 0, 0.95),
+      0 0 120px -20px rgba(37, 211, 102, 0.25);
+    transform: scale(0.85) translateY(30px);
+    opacity: 0;
+    transition:
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
   }
-  
+
+  .wa-overlay.show .wa-modal {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+
+  /* Animated top gradient */
   .wa-modal::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.6), transparent);
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent,
+      #25d366,
+      #128c7e,
+      #25d366,
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: waShine 3s linear infinite;
   }
-  
-  .wa-overlay.show .wa-modal {
-    transform: scale(1) translateY(0);
+
+  @keyframes waShine {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
   }
-  
+
+  /* Background glow */
+  .wa-modal::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.15), transparent 60%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+    animation: waPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes waPulse {
+    0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.15); }
+  }
+
+  .wa-modal > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 3D WhatsApp icon */
+  .wa-icon-wrap {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 22px;
+  }
+
+  .wa-icon-glow {
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.5), transparent 65%);
+    filter: blur(20px);
+    animation: waGlow 3s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  @keyframes waGlow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.1); }
+  }
+
+  .wa-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    border: 2px solid rgba(37, 211, 102, 0.3);
+    animation: waRing 3s ease-out infinite;
+    z-index: 0;
+  }
+
+  .wa-ring:nth-child(2) {
+    animation-delay: 1s;
+  }
+
+  .wa-ring:nth-child(3) {
+    animation-delay: 2s;
+  }
+
+  @keyframes waRing {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
   .wa-icon {
-    width: 68px;
-    height: 68px;
-    border-radius: 20px;
-    margin: 0 auto 18px;
-    background: linear-gradient(135deg, #25d366, #128c7e);
+    position: relative;
+    width: 84px;
+    height: 84px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 12px 30px -8px rgba(37, 211, 102, 0.6);
-    position: relative;
+    box-shadow:
+      0 20px 40px -10px rgba(37, 211, 102, 0.7),
+      inset 0 2px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -3px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    animation: waFloat 3s ease-in-out infinite;
   }
-  
+
+  @keyframes waFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(-2deg); }
+  }
+
   .wa-icon::after {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent 50%);
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.35), transparent 50%);
+    pointer-events: none;
   }
-  
+
   .wa-icon svg {
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
     fill: #fff;
     position: relative;
     z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   }
-  
+
+  /* Text */
   .wa-modal h3 {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 800;
     color: #fff;
-    margin-bottom: 8px;
-    letter-spacing: -0.4px;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 0%, #b0b0b0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
-  
+
   .wa-modal .wa-hint {
     font-size: 13.5px;
     color: #888;
     line-height: 1.6;
-    margin-bottom: 22px;
+    margin-bottom: 26px;
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
+    font-weight: 400;
   }
-  
+
   .wa-modal .wa-hint strong {
-    color: #4ade80;
+    background: linear-gradient(135deg, #25d366, #4ade80);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     font-weight: 700;
   }
-  
-  .Btn {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    height: 54px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
+
+  /* Premium button */
+  .wa-btn {
     position: relative;
-    overflow: hidden;
-    transition: all 0.3s;
-    box-shadow: 0 10px 24px -8px rgba(0, 215, 87, 0.5);
-    background-color: #00d757;
-    padding: 0 18px;
-    gap: 12px;
-  }
-  
-  .Btn .sign {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
-  }
-  
-  .Btn .sign svg {
-    width: 26px;
-    height: 26px;
-  }
-  
-  .Btn .sign svg path {
-    fill: white;
-  }
-  
-  .Btn .text {
-    color: white;
+    gap: 10px;
+    width: 100%;
+    height: 56px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #fff;
     font-size: 15px;
     font-weight: 700;
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.3px;
+    overflow: hidden;
+    box-shadow:
+      0 12px 28px -8px rgba(37, 211, 102, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
-  .Btn:hover {
-    background-color: #00c04e;
-    box-shadow: 0 14px 30px -8px rgba(0, 215, 87, 0.75);
+
+  .wa-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transition: left 0.8s;
+  }
+
+  .wa-btn:hover::before {
+    left: 100%;
+  }
+
+  .wa-btn:hover {
     transform: translateY(-2px);
+    box-shadow:
+      0 20px 40px -8px rgba(37, 211, 102, 0.85),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.15);
   }
-  
-  .Btn:active {
-    transform: translate(1px, 1px);
+
+  .wa-btn:active {
+    transform: translateY(0) scale(0.98);
   }
-  
+
+  .wa-btn svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+  }
+
+  .wa-btn .arrow {
+    transition: transform 0.35s;
+  }
+
+  .wa-btn:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* Skip button */
   .wa-skip {
-    margin-top: 14px;
+    margin-top: 16px;
     background: transparent;
     border: none;
-    color: #666;
+    color: #555;
     font-size: 12.5px;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     cursor: pointer;
     letter-spacing: 0.3px;
-    transition: color 0.25s;
-    padding: 6px;
+    transition: color 0.3s;
+    padding: 8px;
   }
-  
+
   .wa-skip:hover {
     color: #a5b4fc;
   }
-  
+
   /* ============================================
      TOAST
   ============================================ */
@@ -1337,12 +1388,12 @@
     pointer-events: none;
     max-width: calc(100% - 40px);
   }
-  
+
   .toast.show {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
-  
+
   .toast .t-icon {
     width: 18px;
     height: 18px;
@@ -1354,7 +1405,7 @@
     background: rgba(34, 197, 94, 0.15);
     border: 1px solid rgba(34, 197, 94, 0.4);
   }
-  
+
   .toast .t-icon svg {
     width: 10px;
     height: 10px;
@@ -1364,7 +1415,7 @@
     stroke-linecap: round;
     stroke-linejoin: round;
   }
-  
+
   /* ============================================
      RESPONSIVE
   ============================================ */
@@ -1375,9 +1426,10 @@
     .subtitle { font-size: 13px; }
     .modal { padding: 30px 22px 20px; border-radius: 14px; }
     .thanks-modal { padding: 34px 22px 26px; border-radius: 18px; }
-    .wa-modal { padding: 28px 20px 20px; border-radius: 18px; }
-    .metric .num { font-size: 16px; }
-    .metric .lbl { font-size: 9.5px; }
+    .wa-modal { padding: 34px 22px 22px; border-radius: 20px; }
+    .wa-icon-wrap, .wa-icon { width: 72px; height: 72px; }
+    .wa-icon { border-radius: 20px; }
+    .wa-icon svg { width: 36px; height: 36px; }
     .cd-box { min-width: 54px; padding: 10px 8px; }
     .cd-box .cd-val { font-size: 18px; }
   }
@@ -1437,19 +1489,6 @@
         </div>
       </div>
 
-      <!-- Servers -->
-      <div class="input-wrapper">
-        <div class="field-label">
-          <span>Server Region</span>
-          <span class="required">Select</span>
-        </div>
-        <div class="servers" id="serverRow">
-          <div class="server-btn active" data-server="sg">SG</div>
-          <div class="server-btn" data-server="ind">IND</div>
-          <div class="server-btn" data-server="bd">BD</div>
-        </div>
-      </div>
-
       <!-- Tasks -->
       <div class="tasks-head">
         <span class="label">Required Steps</span>
@@ -1489,22 +1528,6 @@
         <span id="btnLabel">Get Likes Now</span>
         <span>→</span>
       </button>
-
-      <!-- Metrics -->
-      <div class="metrics">
-        <div class="metric">
-          <span class="num">12ms</span>
-          <span class="lbl">Latency</span>
-        </div>
-        <div class="metric">
-          <span class="num">2.3M</span>
-          <span class="lbl">Sent</span>
-        </div>
-        <div class="metric">
-          <span class="num">100%</span>
-          <span class="lbl">Free</span>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -1580,25 +1603,31 @@
     </div>
   </div>
 
-  <!-- WhatsApp Modal -->
+  <!-- WhatsApp Modal - Premium Smooth -->
   <div class="wa-overlay" id="waOverlay">
     <div class="wa-modal">
-      <div class="wa-icon">
-        <svg viewBox="0 0 16 16">
-          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-      </div>
 
-      <h3>Join Our WhatsApp Channel</h3>
-      <p class="wa-hint">Get updates, tips &amp; exclusive offers — join the <strong>SASI LIKE LITE</strong> channel now!</p>
-
-      <button class="Btn" onclick="joinWhatsApp()">
-        <div class="sign">
+      <div class="wa-icon-wrap">
+        <div class="wa-icon-glow"></div>
+        <div class="wa-ring"></div>
+        <div class="wa-ring"></div>
+        <div class="wa-ring"></div>
+        <div class="wa-icon">
           <svg viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
           </svg>
         </div>
-        <div class="text">Join Channel</div>
+      </div>
+
+      <h3>Join Our Channel</h3>
+      <p class="wa-hint">Get updates, tips &amp; exclusive offers from <strong>SASI LIKE LITE</strong> — join now!</p>
+
+      <button class="wa-btn" onclick="joinWhatsApp()">
+        <svg viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+        <span>Join WhatsApp Channel</span>
+        <span class="arrow">→</span>
       </button>
 
       <button class="wa-skip" onclick="closeWhatsApp()">Maybe later</button>
@@ -1616,7 +1645,7 @@
      CONFIG
   ============================================ */
   const API_BASE       = "/api/like";
-  const DEFAULT_SERVER = "sg";
+  const SERVER_NAME    = "sg";
   const TASK_URL       = "https://www.profitableratecpmnetwork.com/d8eupwbz3?key=3ec82e2feae896c1747398e23253e92d";
   const TASK_MIN_SEC   = 10;
   const TOTAL_TASKS    = 2;
@@ -1632,7 +1661,6 @@
   const taskIntervals = { 1: null, 2: null };
   const taskRemaining = { 1: 0, 2: 0 };
   let cooldownTicker  = null;
-  let selectedServer  = DEFAULT_SERVER;
 
   /* ELEMENTS */
   const uidInput    = document.getElementById("uidInput");
@@ -1644,7 +1672,6 @@
   const task1Sub    = document.getElementById("task1Sub");
   const task2Sub    = document.getElementById("task2Sub");
   const pasteBtn    = document.getElementById("pasteBtn");
-  const serverRow   = document.getElementById("serverRow");
 
   const overlay         = document.getElementById("overlay");
   const loaderWrapper   = document.getElementById("loaderWrapper");
@@ -1717,21 +1744,10 @@
   }
 
   /* ============================================
-     SERVER CHIP SELECTOR
-  ============================================ */
-  serverRow.addEventListener("click", (e) => {
-    const chip = e.target.closest(".server-btn");
-    if (!chip) return;
-    document.querySelectorAll(".server-btn").forEach(c => c.classList.remove("active"));
-    chip.classList.add("active");
-    selectedServer = chip.dataset.server;
-  });
-
-  /* ============================================
      WHATSAPP POPUP
   ============================================ */
   window.addEventListener("load", () => {
-    setTimeout(() => waOverlay.classList.add("show"), 600);
+    setTimeout(() => waOverlay.classList.add("show"), 700);
   });
 
   function joinWhatsApp() {
@@ -1926,7 +1942,7 @@
   }
 
   /* ============================================
-     INFO BUILDER (server_name removed)
+     INFO BUILDER
   ============================================ */
   function buildDetails(data) {
     const order = [
@@ -1983,7 +1999,6 @@
       return;
     }
 
-    /* Local 24h cooldown check */
     const remaining = getCooldownRemaining(uid);
     if (remaining > 0) {
       showCooldown(uid, remaining);
@@ -1996,10 +2011,9 @@
     showProcessing();
 
     try {
-      const url = `${API_BASE}?uid=${encodeURIComponent(uid)}&server_name=${encodeURIComponent(selectedServer)}`;
+      const url = `${API_BASE}?uid=${encodeURIComponent(uid)}&server_name=${encodeURIComponent(SERVER_NAME)}`;
       const res = await fetch(url);
 
-      // Server-side cooldown
       if (res.status === 429) {
         const data = await res.json().catch(() => ({}));
         const remainingMs = data.remaining || COOLDOWN_MS;
@@ -2024,7 +2038,6 @@
         return;
       }
 
-      /* Success — save cooldown */
       setCooldown(uid);
 
       showResult("success", "Likes sent successfully", "Request completed", buildDetails(data));
