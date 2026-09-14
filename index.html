@@ -26,7 +26,6 @@
     --muted: #666666;
     --muted-2: #444444;
     --danger: #ff3b3b;
-    --warn: #ffaa00;
   }
 
   body {
@@ -43,6 +42,7 @@
     position: relative;
   }
 
+  /* Animated grid background */
   body::before {
     content: "";
     position: fixed;
@@ -62,6 +62,7 @@
     to   { background-position: 40px 40px; }
   }
 
+  /* Neon glow orbs */
   body::after {
     content: "";
     position: fixed;
@@ -92,7 +93,9 @@
     to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  /* BRAND */
+  /* ============================================
+     BRAND BAR
+  ============================================ */
   .brand {
     display: flex;
     align-items: center;
@@ -127,6 +130,7 @@
     border: 1px solid var(--neon);
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 0 12px var(--neon-glow), inset 0 0 12px rgba(0, 255, 136, 0.15);
+    position: relative;
     animation: logoPulse 2.5s ease-in-out infinite;
   }
   @keyframes logoPulse {
@@ -179,7 +183,9 @@
     50%      { opacity: 0.4; transform: scale(0.7); }
   }
 
-  /* CARD */
+  /* ============================================
+     MAIN CARD
+  ============================================ */
   .card {
     background: var(--panel);
     border-radius: 20px;
@@ -192,6 +198,7 @@
       0 20px 60px -20px rgba(0, 0, 0, 0.9),
       0 0 100px -40px rgba(0, 255, 136, 0.3);
   }
+  /* corner accents */
   .card::before,
   .card::after {
     content: "";
@@ -214,6 +221,9 @@
     border-bottom-right-radius: 12px;
   }
 
+  /* ============================================
+     HEADER
+  ============================================ */
   .head { text-align: center; margin-bottom: 26px; }
   .badge-top {
     display: inline-flex; align-items: center; gap: 6px;
@@ -247,6 +257,7 @@
   .title .accent {
     color: var(--neon);
     text-shadow: 0 0 20px var(--neon-glow), 0 0 40px var(--neon-glow);
+    position: relative;
   }
   .subtitle {
     font-family: 'JetBrains Mono', monospace;
@@ -259,7 +270,9 @@
     text-transform: uppercase;
   }
 
-  /* INPUT */
+  /* ============================================
+     INPUT FIELD
+  ============================================ */
   .field { text-align: left; margin-bottom: 20px; }
   .field label {
     display: flex; align-items: center; gap: 8px;
@@ -286,6 +299,7 @@
     height: 1px;
     background: linear-gradient(90deg, var(--border), transparent);
   }
+
   .field .wrap-inp { position: relative; display: flex; align-items: center; }
   .field svg.icon {
     position: absolute;
@@ -367,7 +381,9 @@
     box-shadow: 0 0 15px var(--neon-glow);
   }
 
-  /* STEPS */
+  /* ============================================
+     STEPS
+  ============================================ */
   .tasks-head {
     display: flex;
     align-items: center;
@@ -541,7 +557,9 @@
   }
   .task.done .arrow { stroke: var(--neon); }
 
-  /* BUTTONPRO */
+  /* ============================================
+     PRO BUTTON (Sci-fi)
+  ============================================ */
   .buttonpro {
     --btn-default-bg: #000;
     --btn-padding: 15px 20px;
@@ -633,7 +651,9 @@
     100% { content: ""; right: 0; }
   }
 
-  /* FOOTER */
+  /* ============================================
+     FOOTER
+  ============================================ */
   .foot {
     margin-top: 18px;
     text-align: center;
@@ -663,7 +683,9 @@
     box-shadow: 0 0 6px var(--neon);
   }
 
-  /* LOADING OVERLAY - Speed loader */
+  /* ============================================
+     BLACK LOADING OVERLAY
+  ============================================ */
   .loading-overlay {
     position: fixed;
     inset: 0;
@@ -676,8 +698,12 @@
     visibility: hidden;
     transition: opacity 0.35s ease, visibility 0.35s ease;
   }
-  .loading-overlay.show { opacity: 1; visibility: visible; }
+  .loading-overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
 
+  /* Speed loader from Uiverse.io by anand_4957 */
   .loader {
     position: absolute;
     top: 50%;
@@ -821,7 +847,9 @@
   @keyframes lf3 { 0% { left: 200%; } 100% { left: -100%; opacity: 0; } }
   @keyframes lf4 { 0% { left: 200%; } 100% { left: -100%; opacity: 0; } }
 
-  /* MODAL */
+  /* ============================================
+     RESULT / NOTIFICATION MODAL
+  ============================================ */
   .overlay {
     position: fixed;
     inset: 0;
@@ -837,7 +865,10 @@
     visibility: hidden;
     transition: opacity 0.35s ease, visibility 0.35s ease;
   }
-  .overlay.show { opacity: 1; visibility: visible; }
+  .overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
 
   .modal {
     background: var(--panel);
@@ -856,7 +887,10 @@
     position: relative;
     overflow: hidden;
   }
-  .overlay.show .modal { transform: scale(1) translateY(0); }
+  .overlay.show .modal {
+    transform: scale(1) translateY(0);
+  }
+  /* corner accents */
   .modal::before,
   .modal::after {
     content: "";
@@ -877,6 +911,7 @@
     border-top: none;
   }
 
+  /* Result icon */
   .result-icon {
     width: 68px; height: 68px;
     border-radius: 18px;
@@ -885,6 +920,7 @@
     align-items: center;
     justify-content: center;
     animation: popIn 0.5s cubic-bezier(.2,.9,.3,1.4) both;
+    position: relative;
     border: 1.5px solid;
   }
   @keyframes popIn {
@@ -1005,6 +1041,7 @@
     text-shadow: 0 0 10px var(--neon-glow);
   }
 
+  /* Modal close button */
   .modal-btn {
     width: 100%;
     padding: 13px;
@@ -1019,6 +1056,8 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
   }
   .modal-btn:hover {
     border-color: var(--neon);
@@ -1028,7 +1067,9 @@
   }
   .modal-btn[hidden] { display: none; }
 
-  /* WAIT CARD */
+  /* ============================================
+     WAIT TIMER MODAL
+  ============================================ */
   .wait-card {
     display: none;
     flex-direction: column;
@@ -1047,12 +1088,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     animation: popIn 0.5s cubic-bezier(.2,.9,.3,1.4) both;
     box-shadow: 0 0 25px -5px rgba(255, 170, 0, 0.5);
   }
   .wait-icon svg {
     width: 30px; height: 30px;
-    stroke: var(--warn);
+    stroke: #ffaa00;
     fill: none;
     stroke-width: 2.4;
     stroke-linecap: round;
@@ -1068,7 +1110,7 @@
     font-family: 'Space Grotesk', sans-serif;
     font-size: 20px;
     font-weight: 700;
-    color: var(--warn);
+    color: #ffaa00;
     margin-bottom: 6px;
     letter-spacing: -0.3px;
     text-shadow: 0 0 15px rgba(255, 170, 0, 0.6);
@@ -1106,7 +1148,7 @@
     font-family: 'Space Grotesk', sans-serif;
     font-size: 24px;
     font-weight: 700;
-    color: var(--warn);
+    color: #ffaa00;
     letter-spacing: -0.5px;
     line-height: 1;
     margin-bottom: 4px;
@@ -1123,7 +1165,7 @@
   .wait-sep {
     font-size: 20px;
     font-weight: 700;
-    color: var(--warn);
+    color: #ffaa00;
     margin-top: -14px;
     opacity: 0.6;
   }
@@ -1133,7 +1175,7 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 170, 0, 0.4);
     background: #000;
-    color: var(--warn);
+    color: #ffaa00;
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
     font-weight: 800;
@@ -1143,12 +1185,14 @@
     transition: all 0.25s ease;
   }
   .wait-btn:hover {
-    border-color: var(--warn);
+    border-color: #ffaa00;
     box-shadow: 0 0 25px -5px rgba(255, 170, 0, 0.7);
     text-shadow: 0 0 10px rgba(255, 170, 0, 0.8);
   }
 
-  /* WHATSAPP NOTIFICATION */
+  /* ============================================
+     WHATSAPP NOTIFICATION POPUP (Success style)
+  ============================================ */
   .wa-overlay {
     position: fixed;
     inset: 0;
@@ -1171,6 +1215,9 @@
     max-width: 360px;
     font-size: 0.875rem;
     line-height: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     transform: scale(0.85) translateY(30px);
     transition: transform 0.5s cubic-bezier(.2,.9,.3,1.3);
   }
@@ -1300,7 +1347,9 @@
     color: #aaa;
   }
 
-  /* THANKS MODAL */
+  /* ============================================
+     THANKS MODAL
+  ============================================ */
   .thanks-overlay {
     position: fixed;
     inset: 0;
@@ -1367,6 +1416,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     box-shadow: 0 0 35px -5px var(--neon-glow);
     animation: heartPop 0.7s cubic-bezier(.2,.9,.3,1.5) both;
   }
@@ -1435,7 +1485,9 @@
     to   { transform: scaleX(1); }
   }
 
-  /* TOAST */
+  /* ============================================
+     TOAST
+  ============================================ */
   .toast {
     position: fixed;
     top: 22px;
@@ -1487,6 +1539,9 @@
     stroke-linejoin: round;
   }
 
+  /* ============================================
+     RESPONSIVE
+  ============================================ */
   @media (max-width: 480px) {
     body { padding: 14px; }
     .card { padding: 26px 20px 20px; border-radius: 16px; }
@@ -1617,7 +1672,9 @@
     </div>
   </div>
 
-  <!-- Loading -->
+  <!-- ============================================
+       BLACK LOADING OVERLAY (Speed loader)
+  ============================================ -->
   <div class="loading-overlay" id="loadingOverlay">
     <div class="loader">
       <span><span></span><span></span><span></span><span></span></span>
@@ -1631,7 +1688,9 @@
     </div>
   </div>
 
-  <!-- Result Modal -->
+  <!-- ============================================
+       RESULT MODAL
+  ============================================ -->
   <div class="overlay" id="overlay">
     <div class="modal">
 
@@ -1676,7 +1735,9 @@
     </div>
   </div>
 
-  <!-- WhatsApp -->
+  <!-- ============================================
+       WHATSAPP NOTIFICATION POPUP
+  ============================================ -->
   <div class="wa-overlay" id="waOverlay">
     <div class="notifications-container">
       <div class="success">
@@ -1704,7 +1765,9 @@
     </div>
   </div>
 
-  <!-- Thanks -->
+  <!-- ============================================
+       THANKS MODAL
+  ============================================ -->
   <div class="thanks-overlay" id="thanksOverlay">
     <div class="thanks-modal">
       <div class="thanks-icon">
@@ -1726,10 +1789,9 @@
 
 <script>
   /* ============================================
-     CONFIG — Direct API (same domain)
+     CONFIG
   ============================================ */
-  const API_URL      = "https://sasi-like-lite.vercel.app/like";
-  const SERVER_NAME  = "BD";
+  const API_BASE     = "/api/like";
   const TASK_URL     = "https://www.profitableratecpmnetwork.com/d8eupwbz3?key=3ec82e2feae896c1747398e23253e92d";
   const TASK_MIN_SEC = 10;
   const TOTAL_TASKS  = 2;
@@ -1782,7 +1844,7 @@
   };
 
   /* ============================================
-     LOCAL STORAGE - 24h wait
+     LOCAL STORAGE - 24h wait per UID
   ============================================ */
   function getWaitMap() {
     try {
@@ -1821,7 +1883,7 @@
   }
 
   /* ============================================
-     WHATSAPP
+     WHATSAPP POPUP ON LOAD
   ============================================ */
   window.addEventListener("load", () => {
     setTimeout(() => { waOverlay.classList.add("show"); }, 600);
@@ -1931,13 +1993,17 @@
   }
 
   /* ============================================
-     LOADING
+     LOADING OVERLAY (black fullscreen)
   ============================================ */
-  function showLoading() { loadingOverlay.classList.add("show"); }
-  function hideLoading() { loadingOverlay.classList.remove("show"); }
+  function showLoading() {
+    loadingOverlay.classList.add("show");
+  }
+  function hideLoading() {
+    loadingOverlay.classList.remove("show");
+  }
 
   /* ============================================
-     RESULT
+     RESULT MODAL
   ============================================ */
   function showResult(type, title, hint, infoHTML) {
     hideLoading();
@@ -2016,7 +2082,7 @@
   }
 
   /* ============================================
-     INFO
+     INFO BUILDER
   ============================================ */
   function buildDetails(data) {
     const order = [
@@ -2046,7 +2112,7 @@
   }
 
   /* ============================================
-     MAIN — Direct API Call
+     MAIN ACTION
   ============================================ */
   async function getLikes() {
     if (completedTasks < TOTAL_TASKS) {
@@ -2085,27 +2151,27 @@
     showLoading();
 
     try {
-      /* ✅ Direct API call — same domain */
-      const url = `${API_URL}?uid=${encodeURIComponent(uid)}&server_name=${SERVER_NAME}`;
+      const url = `${API_BASE}?uid=${encodeURIComponent(uid)}`;
       const res = await fetch(url);
+
+      if (res.status === 429) {
+        const data = await res.json().catch(() => ({}));
+        const remainingMs = data.remaining || WAIT_MS;
+        setWait(uid);
+        await new Promise(r => setTimeout(r, 1500));
+        hideLoading();
+        showWait(uid, remainingMs);
+        likeBtn.disabled = false;
+        btnText.textContent = "Get Likes";
+        return;
+      }
 
       if (!res.ok) throw new Error(`Server error (${res.status})`);
       const data = await res.json();
 
       await new Promise(r => setTimeout(r, 2200));
 
-      /* ═══ STATUS 2 — Already liked / Wait ═══ */
-      if (data.status === 2) {
-        setWait(uid);
-        hideLoading();
-        showWait(uid, WAIT_MS);
-        likeBtn.disabled = false;
-        btnText.textContent = "Get Likes";
-        return;
-      }
-
-      /* ═══ STATUS 0 — Error ═══ */
-      if (data.status === 0 || data.error) {
+      if (data.error || data.status === 0) {
         showResult("error", "Request failed", data.error || "Please try again later",
           `<div class="info-item"><span class="key">Reason</span><span class="val">${data.error || "Failed"}</span></div>`);
         likeBtn.disabled = false;
@@ -2113,7 +2179,6 @@
         return;
       }
 
-      /* ═══ STATUS 1 — Success ═══ */
       setWait(uid);
       showResult("success", "Likes sent successfully", "Request completed", buildDetails(data));
 
