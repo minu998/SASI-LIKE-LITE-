@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maintenance · SASI LIKE LITE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #000;
+    color: #ededed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Animated conic glow */
+  .glow {
+    position: fixed;
+    top: -400px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 800px;
+    background: conic-gradient(from 180deg at 50% 50%, #007cf0 0deg, #00dfd8 90deg, #7928ca 180deg, #ff0080 270deg, #007cf0 360deg);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    z-index: 0;
+    animation: rotate 30s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes rotate {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to { transform: translateX(-50%) rotate(360deg); }
+  }
+
+  /* Dot grid */
+  .grid {
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 460px;
+    animation: enter 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes enter {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Top badge */
+  .top-badge {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(251, 146, 60, 0.08);
+    border: 1px solid rgba(251, 146, 60, 0.25);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fb923c;
+    backdrop-filter: blur(20px);
+    letter-spacing: 0.3px;
+  }
+
+  .badge-pill .dot {
+    width: 6px;
+    height: 6px;
+    background: #fb923c;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fb923c;
+    animation: pulse 1.8s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* Card */
+  .card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 44px 32px 32px;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.02),
+      0 30px 80px -30px rgba(0, 0, 0, 0.9);
+    text-align: center;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(251, 146, 60, 0.7) 25%,
+      rgba(255, 0, 128, 0.5) 50%,
+      rgba(251, 146, 60, 0.7) 75%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shine 4s linear infinite;
+  }
+
+  @keyframes shine {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+
+  /* Brand bar */
+  .brand-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .brand-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #007cf0 0%, #7928ca 50%, #ff0080 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 14px -4px rgba(121, 40, 202, 0.7);
+  }
+
+  .logo-mark::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent 50%);
+  }
+
+  .logo-mark svg {
+    width: 16px;
+    height: 16px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    position: relative;
+    z-index: 1;
+  }
+
+  .brand-name {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+  }
+
+  .brand-name .accent {
+    background: linear-gradient(135deg, #00dfd8, #ff0080);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .brand-sub {
+    font-size: 9.5px;
+    color: #666;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: left;
+  }
+
+  .status-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    background: rgba(251, 146, 60, 0.08);
+    border: 1px solid rgba(251, 146, 60, 0.2);
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fb923c;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .status-pill .dot {
+    width: 5px;
+    height: 5px;
+    background: #fb923c;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #fb923c;
+    animation: pulse 1.8s infinite;
+  }
+
+  /* Maintenance icon */
+  .maint-icon-wrap {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    margin: 8px auto 28px;
+  }
+
+  .maint-icon-glow {
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(251, 146, 60, 0.4), transparent 65%);
+    filter: blur(24px);
+    animation: glowPulse 3s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.12); }
+  }
+
+  .maint-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    border: 2px solid rgba(251, 146, 60, 0.35);
+    animation: ringOut 3s ease-out infinite;
+    z-index: 0;
+  }
+
+  .maint-ring:nth-child(2) { animation-delay: 1s; }
+  .maint-ring:nth-child(3) { animation-delay: 2s; }
+
+  @keyframes ringOut {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.7); opacity: 0; }
+  }
+
+  .maint-icon {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #fb923c 0%, #f59e0b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+      0 20px 40px -10px rgba(251, 146, 60, 0.7),
+      inset 0 2px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -3px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    animation: gearFloat 4s ease-in-out infinite;
+  }
+
+  @keyframes gearFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(8deg); }
+  }
+
+  .maint-icon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.35), transparent 50%);
+    pointer-events: none;
+  }
+
+  .maint-icon svg {
+    width: 46px;
+    height: 46px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    animation: gearSpin 12s linear infinite;
+  }
+
+  @keyframes gearSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Title */
+  .title {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    background: linear-gradient(180deg, #fff 0%, #a1a1a1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .title .accent {
+    background: linear-gradient(135deg, #fb923c, #ff0080);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .description {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Info cards */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .info-card {
+    padding: 14px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    text-align: left;
+    transition: all 0.3s;
+  }
+
+  .info-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .info-card .ic-label {
+    font-size: 9.5px;
+    color: #666;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .info-card .ic-val {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+    display: block;
+    letter-spacing: -0.2px;
+  }
+
+  .info-card .ic-val.status-live {
+    color: #fb923c;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .info-card .ic-val.status-live::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #fb923c;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #fb923c;
+    animation: pulse 1.8s infinite;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #666;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 8px;
+  }
+
+  .progress-label .pct {
+    color: #fb923c;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #fb923c, #f59e0b, #fb923c);
+    background-size: 200% 100%;
+    border-radius: 3px;
+    width: 0%;
+    animation: progressAnim 8s ease-in-out infinite, gradientShift 2s linear infinite;
+  }
+
+  @keyframes progressAnim {
+    0% { width: 15%; }
+    50% { width: 75%; }
+    100% { width: 15%; }
+  }
+
+  @keyframes gradientShift {
+    from { background-position: 0% 0; }
+    to { background-position: 200% 0; }
+  }
+
+  /* WhatsApp section */
+  .wa-section {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .wa-section-title {
+    font-size: 12.5px;
+    color: #888;
+    font-weight: 500;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .wa-section-title strong {
+    color: #25d366;
+    font-weight: 700;
+  }
+
+  .wa-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #fff;
+    font-size: 14.5px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+    overflow: hidden;
+    box-shadow:
+      0 12px 28px -8px rgba(37, 211, 102, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .wa-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transition: left 0.8s;
+  }
+
+  .wa-btn:hover::before {
+    left: 100%;
+  }
+
+  .wa-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 20px 40px -8px rgba(37, 211, 102, 0.85),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .wa-btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .wa-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+  }
+
+  .wa-btn .arrow {
+    transition: transform 0.35s;
+    font-size: 16px;
+  }
+
+  .wa-btn:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* Footer */
+  .foot {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 10.5px;
+    color: #555;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .foot .sep {
+    width: 3px;
+    height: 3px;
+    background: #333;
+    border-radius: 50%;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    body { padding: 14px; }
+    .card { padding: 34px 22px 26px; border-radius: 14px; }
+    .title { font-size: 24px; }
+    .description { font-size: 13px; }
+    .maint-icon-wrap, .maint-icon { width: 80px; height: 80px; }
+    .maint-icon { border-radius: 24px; }
+    .maint-icon svg { width: 38px; height: 38px; }
+    .info-card { padding: 12px 10px; }
+    .info-card .ic-val { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="glow"></div>
+  <div class="grid"></div>
+
+  <div class="container">
+
+    <!-- Top badge -->
+    <div class="top-badge">
+      <div class="badge-pill">
+        <span class="dot"></span>
+        <span>Under Maintenance</span>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+
+      <!-- Brand bar -->
+      <div class="brand-bar">
+        <div class="brand-left">
+          <div class="logo-mark">
+            <svg viewBox="0 0 24 24">
+              <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-name">SASI LIKE <span class="accent">LITE</span></div>
+            <div class="brand-sub">Free Fire Service</div>
+          </div>
+        </div>
+        <div class="status-pill">
+          <span class="dot"></span>
+          Offline
+        </div>
+      </div>
+
+      <!-- Maintenance Icon -->
+      <div class="maint-icon-wrap">
+        <div class="maint-icon-glow"></div>
+        <div class="maint-ring"></div>
+        <div class="maint-ring"></div>
+        <div class="maint-ring"></div>
+        <div class="maint-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Title -->
+      <h1 class="title">
+        We'll Be <span class="accent">Back Soon</span>
+      </h1>
+      <p class="description">
+        Our servers are currently being upgraded to bring you a faster and better experience. Thanks for your patience!
+      </p>
+
+      <!-- Info cards -->
+      <div class="info-grid">
+        <div class="info-card">
+          <span class="ic-label">Status</span>
+          <span class="ic-val status-live">Upgrading</span>
+        </div>
+        <div class="info-card">
+          <span class="ic-label">Local Time</span>
+          <span class="ic-val" id="liveClock">--:--:--</span>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-wrap">
+        <div class="progress-label">
+          <span>Maintenance Progress</span>
+          <span class="pct" id="progressPct">45%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="wa-section">
+        <p class="wa-section-title">
+          Join our <strong>WhatsApp channel</strong> to get notified as soon as we're back online.
+        </p>
+
+        <button class="wa-btn" onclick="joinWhatsApp()">
+          <svg viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+          </svg>
+          <span>Join WhatsApp Channel</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <div class="foot">
+        <span>SASI LIKE LITE</span>
+        <span class="sep"></span>
+        <span id="footDate">--</span>
+      </div>
+
+    </div>
+  </div>
+
+<script>
+  /* ============================================
+     CONFIG
+  ============================================ */
+  const WA_CHANNEL = "https://whatsapp.com/channel/0029VbDPeI11SWssJhM5wT1W";
+
+  /* ============================================
+     LIVE CLOCK
+  ============================================ */
+  function updateClock() {
+    const now = new Date();
+    const hh = String(now.getHours()).padStart(2, "0");
+    const mm = String(now.getMinutes()).padStart(2, "0");
+    const ss = String(now.getSeconds()).padStart(2, "0");
+    const clockEl = document.getElementById("liveClock");
+    if (clockEl) clockEl.textContent = `${hh}:${mm}:${ss}`;
+  }
+
+  function updateFootDate() {
+    const now = new Date();
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const dateStr = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+    const el = document.getElementById("footDate");
+    if (el) el.textContent = dateStr;
+  }
+
+  /* ============================================
+     PROGRESS ANIMATION
+  ============================================ */
+  function animateProgress() {
+    const pctEl = document.getElementById("progressPct");
+    const fillEl = document.getElementById("progressFill");
+    if (!pctEl || !fillEl) return;
+
+    // Start at random between 30-70%
+    let current = 30 + Math.floor(Math.random() * 40);
+    pctEl.textContent = current + "%";
+    fillEl.style.width = current + "%";
+
+    setInterval(() => {
+      // Small random fluctuation
+      const delta = Math.random() > 0.5 ? 1 : -1;
+      current = Math.min(85, Math.max(30, current + delta));
+
+      pctEl.textContent = current + "%";
+      fillEl.style.width = current + "%";
+    }, 2500);
+  }
+
+  /* ============================================
+     WHATSAPP
+  ============================================ */
+  function joinWhatsApp() {
+    window.open(WA_CHANNEL, "_blank");
+  }
+
+  /* ============================================
+     INIT
+  ============================================ */
+  updateClock();
+  updateFootDate();
+  setInterval(updateClock, 1000);
+  animateProgress();
+</script>
+
+</body>
+</html>
